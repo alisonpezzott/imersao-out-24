@@ -1,0 +1,138 @@
+table Product
+	lineageTag: 6be84a4d-3376-49ab-9104-04c5872c6110
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b667e2d5-25bc-4402-b5bc-ba4acc326c48
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Code'
+		dataType: string
+		lineageTag: 08ab3801-7768-483d-8333-f3cd51e5b822
+		summarizeBy: none
+		sourceColumn: Product Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Name'
+		dataType: string
+		lineageTag: ef008015-cdcb-4523-ac9b-a2f5e56c4c7c
+		summarizeBy: none
+		sourceColumn: Product Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manufacturer
+		dataType: string
+		lineageTag: 9ad83d57-76d5-497b-a8bf-a8c44e6bc36c
+		summarizeBy: none
+		sourceColumn: Manufacturer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand
+		dataType: string
+		lineageTag: c4f5e121-c96c-4ac7-9479-aaf0e3d1a618
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		lineageTag: 5c1c3087-c884-4524-bc88-35d3ddb5e180
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Weight Unit Measure'
+		dataType: string
+		lineageTag: 4cd00384-46ff-4de6-8474-789e96647079
+		summarizeBy: none
+		sourceColumn: Weight Unit Measure
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weight
+		dataType: double
+		lineageTag: 05e77467-c048-4e89-9ab4-792a887ef89f
+		summarizeBy: none
+		sourceColumn: Weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unit Cost'
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: a32141dc-f76d-42e4-aa1d-8dcc31424c46
+		summarizeBy: none
+		sourceColumn: Unit Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column 'Unit Price'
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: cec7f261-1356-436e-9d7c-14970ef7f025
+		summarizeBy: none
+		sourceColumn: Unit Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column 'Subcategory Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ad9991b-888c-4edf-b7df-a6cb3bbb39d8
+		summarizeBy: none
+		sourceColumn: Subcategory Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subcategory
+		dataType: string
+		lineageTag: 52e4d53b-1c26-4612-a0ee-112a231479a8
+		summarizeBy: none
+		sourceColumn: Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e43d049-e689-4c8c-a258-144a512434e5
+		summarizeBy: none
+		sourceColumn: Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 38066250-2cb1-4e65-a1c3-6d53cac3b5b8
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Product = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("localhost"),
+				    #"Contoso V2 1M" = Source{[Name="Contoso V2 1M"]}[Data],
+				    dbo_Product = #"Contoso V2 1M"{[Schema="dbo",Item="Product"]}[Data]
+				in
+				    dbo_Product
+
+	annotation PBI_ResultType = Table
+

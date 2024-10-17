@@ -1,0 +1,152 @@
+table Sales
+	lineageTag: dd7d2d60-ec1e-4117-94a3-0ef7f06d0c6c
+
+	measure 'Sales Amount' = ```
+			
+			SUMX(
+			    'Sales',
+			    'Sales'[Quantity] * 'Sales'[Unit Price]
+			)
+			
+			```
+		lineageTag: acfd9c01-5d07-49e2-9cf7-91bcdc29c906
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Order Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: b1ea8b4f-3684-43c0-b96d-8ea0de2aa4fb
+		summarizeBy: sum
+		sourceColumn: Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Line Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: c455aed9-5bda-4c57-9ec2-d5674a4994dc
+		summarizeBy: sum
+		sourceColumn: Line Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 14e8d414-c346-4fc4-b10c-24b8f8d21820
+		summarizeBy: none
+		sourceColumn: Order Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Delivery Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f10e02ec-4656-4135-89e9-d06cbd74b673
+		summarizeBy: none
+		sourceColumn: Delivery Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: dc27833a-ea3f-4de3-b72a-7804f8c6297b
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ae79b9ad-8e83-4cd9-87b3-ef5a9aba2ced
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 96b9a837-6abf-4d54-9996-34eeec6aafc6
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: double
+		lineageTag: 7386bafc-73d6-4c5a-8eea-8842b17dc9d8
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unit Price'
+		dataType: double
+		lineageTag: c9649811-ae07-4547-904b-c97d7f25f778
+		summarizeBy: sum
+		sourceColumn: Unit Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Net Price'
+		dataType: double
+		lineageTag: df1eb0c2-a5cf-4e0f-996f-26c2a972905a
+		summarizeBy: sum
+		sourceColumn: Net Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unit Cost'
+		dataType: double
+		lineageTag: 5263d861-4220-414a-b8cb-e02d1b068440
+		summarizeBy: sum
+		sourceColumn: Unit Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Currency Code'
+		dataType: string
+		lineageTag: 113fea7e-92f2-46d8-831c-b72de053901d
+		summarizeBy: none
+		sourceColumn: Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Exchange Rate'
+		dataType: double
+		lineageTag: 0dbb1e41-98b7-49b7-8940-15c8464423c0
+		summarizeBy: sum
+		sourceColumn: Exchange Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Sales = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("localhost"),
+				    #"Contoso V2 1M" = Source{[Name="Contoso V2 1M"]}[Data],
+				    dbo_Sales = #"Contoso V2 1M"{[Schema="dbo",Item="Sales"]}[Data]
+				in
+				    dbo_Sales
+
+	annotation PBI_ResultType = Table
+
