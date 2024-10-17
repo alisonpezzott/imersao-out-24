@@ -13,6 +13,16 @@ table Sales
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Sales Amount LY' =
+			
+			CALCULATE(
+			    [Sales Amount],
+			    SAMEPERIODLASTYEAR('Date'[Date])
+			)
+		lineageTag: 4ab58871-dfec-4579-a9aa-c02e82863056
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column 'Order Number'
 		dataType: int64
 		formatString: 0
