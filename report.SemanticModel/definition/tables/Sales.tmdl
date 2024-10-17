@@ -21,15 +21,18 @@ table Sales
 			)
 		lineageTag: 4ab58871-dfec-4579-a9aa-c02e82863056
 
-		measure 'Sales Amount PM' =
-				
-				CALCULATE(
-					[Sales Amount],
-					PREVIOUSMONTH('Date'[Date])
-				)
-			lineageTag: 7b9e8c2d-4c5b-4d8a-8b2d-3a8e8c2d4d8a
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sales Amount PM' =
+			
+			CALCULATE(
+				[Sales Amount],
+				PREVIOUSMONTH('Date'[Date])
+			)
+		lineageTag: 7b9e8c2d-4c5b-4d8a-8b2d-3a8e8c2d4d8a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		
 
 	column 'Order Number'
 		dataType: int64
