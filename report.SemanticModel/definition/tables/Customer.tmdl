@@ -42,35 +42,11 @@ table Customer
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'State Code'
-		dataType: string
-		lineageTag: 430daa48-d08f-4bd6-8554-537430b534ee
-		summarizeBy: none
-		sourceColumn: State Code
-
-		annotation SummarizationSetBy = Automatic
-
 	column State
 		dataType: string
 		lineageTag: 3c0a9f12-54a8-48bc-9682-9f96a37f94f7
 		summarizeBy: none
 		sourceColumn: State
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Zip Code'
-		dataType: string
-		lineageTag: f09eeddb-4712-4d1d-9657-94edd2d8521b
-		summarizeBy: none
-		sourceColumn: Zip Code
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Country Code'
-		dataType: string
-		lineageTag: e49ab14b-ace1-4796-a885-1da03de7eaf3
-		summarizeBy: none
-		sourceColumn: Country Code
 
 		annotation SummarizationSetBy = Automatic
 
@@ -101,12 +77,27 @@ table Customer
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column Age
-		dataType: int64
-		formatString: 0
-		lineageTag: d22611fc-fd2e-40a7-93a3-2c97b3ab935d
+	column StateCode
+		dataType: string
+		lineageTag: 2157148c-cd96-4df2-b30f-9745bf2a5ebd
 		summarizeBy: none
-		sourceColumn: Age
+		sourceColumn: StateCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZipCode
+		dataType: string
+		lineageTag: 6d5d597e-bea0-426a-a910-3be0a308a414
+		summarizeBy: none
+		sourceColumn: ZipCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryCode
+		dataType: string
+		lineageTag: 4d235029-07df-4217-b7c0-d405903fb1af
+		summarizeBy: none
+		sourceColumn: CountryCode
 
 		annotation SummarizationSetBy = Automatic
 
@@ -114,11 +105,15 @@ table Customer
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("localhost"),
-				    #"Contoso V2 1M" = Source{[Name="Contoso V2 1M"]}[Data],
-				    dbo_Customer = #"Contoso V2 1M"{[Schema="dbo",Item="Customer"]}[Data]
+				    Source = PowerPlatform.Dataflows(null)
+				        {[Id="Workspaces"]}[Data]
+				        {[workspaceId="0f694e77-2b7f-4efd-8c1e-401276b32219"]}[Data]
+				        {[dataflowId="b7553d7c-cec1-4e1d-91ea-15a12c336b99"]}[Data]
+				        {[entity="Customer",version=""]}[Data]
 				in
-				    dbo_Customer
+				    Source
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

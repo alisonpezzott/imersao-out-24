@@ -10,22 +10,6 @@ table Product
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Product Code'
-		dataType: string
-		lineageTag: 08ab3801-7768-483d-8333-f3cd51e5b822
-		summarizeBy: none
-		sourceColumn: Product Code
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Product Name'
-		dataType: string
-		lineageTag: ef008015-cdcb-4523-ac9b-a2f5e56c4c7c
-		summarizeBy: none
-		sourceColumn: Product Name
-
-		annotation SummarizationSetBy = Automatic
-
 	column Manufacturer
 		dataType: string
 		lineageTag: 9ad83d57-76d5-497b-a8bf-a8c44e6bc36c
@@ -50,14 +34,6 @@ table Product
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Weight Unit Measure'
-		dataType: string
-		lineageTag: 4cd00384-46ff-4de6-8474-789e96647079
-		summarizeBy: none
-		sourceColumn: Weight Unit Measure
-
-		annotation SummarizationSetBy = Automatic
-
 	column Weight
 		dataType: double
 		lineageTag: 05e77467-c048-4e89-9ab4-792a887ef89f
@@ -68,51 +44,11 @@ table Product
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'Unit Cost'
-		dataType: decimal
-		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
-		lineageTag: a32141dc-f76d-42e4-aa1d-8dcc31424c46
-		summarizeBy: none
-		sourceColumn: Unit Cost
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
-
-	column 'Unit Price'
-		dataType: decimal
-		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
-		lineageTag: cec7f261-1356-436e-9d7c-14970ef7f025
-		summarizeBy: none
-		sourceColumn: Unit Price
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
-
-	column 'Subcategory Code'
-		dataType: int64
-		formatString: 0
-		lineageTag: 5ad9991b-888c-4edf-b7df-a6cb3bbb39d8
-		summarizeBy: none
-		sourceColumn: Subcategory Code
-
-		annotation SummarizationSetBy = Automatic
-
 	column Subcategory
 		dataType: string
 		lineageTag: 52e4d53b-1c26-4612-a0ee-112a231479a8
 		summarizeBy: none
 		sourceColumn: Subcategory
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Category Code'
-		dataType: int64
-		formatString: 0
-		lineageTag: 9e43d049-e689-4c8c-a258-144a512434e5
-		summarizeBy: none
-		sourceColumn: Category Code
 
 		annotation SummarizationSetBy = Automatic
 
@@ -124,15 +60,81 @@ table Product
 
 		annotation SummarizationSetBy = Automatic
 
+	column ProductCode
+		dataType: string
+		lineageTag: 515f8828-514c-4259-a8b3-eaaa627d31e3
+		summarizeBy: none
+		sourceColumn: ProductCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: 048ee152-89a2-427a-8630-852ff527a420
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeightUnitMeasure
+		dataType: string
+		lineageTag: 53aedbaf-83ae-47d8-98e5-807ca2e42093
+		summarizeBy: none
+		sourceColumn: WeightUnitMeasure
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitCost
+		dataType: double
+		lineageTag: 42c2a9bf-2b2e-45e9-99d5-70258f0a79e0
+		summarizeBy: none
+		sourceColumn: UnitCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitPrice
+		dataType: double
+		lineageTag: 3f27da5d-45d6-4c1d-86f0-01cf84ef953b
+		summarizeBy: none
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SubcategoryCode
+		dataType: int64
+		formatString: 0
+		lineageTag: 032ffdf8-dfe2-4c61-b63d-2a26f13f3f2a
+		summarizeBy: none
+		sourceColumn: SubcategoryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryCode
+		dataType: int64
+		formatString: 0
+		lineageTag: b0b26b65-804d-4311-8c48-8ea26b0a5df8
+		summarizeBy: none
+		sourceColumn: CategoryCode
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Product = m
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("localhost"),
-				    #"Contoso V2 1M" = Source{[Name="Contoso V2 1M"]}[Data],
-				    dbo_Product = #"Contoso V2 1M"{[Schema="dbo",Item="Product"]}[Data]
+				    Source = PowerPlatform.Dataflows(null)
+				        {[Id="Workspaces"]}[Data]
+				        {[workspaceId="0f694e77-2b7f-4efd-8c1e-401276b32219"]}[Data]
+				        {[dataflowId="b7553d7c-cec1-4e1d-91ea-15a12c336b99"]}[Data]
+				        {[entity="Product",version=""]}[Data]
 				in
-				    dbo_Product
+				    Source
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

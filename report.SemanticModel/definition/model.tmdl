@@ -10,7 +10,7 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBIDesktopVersion = 2.137.751.0 (24.10)
 
-annotation PBI_QueryOrder = ["Store","Sales","Product","Customer","Date"]
+annotation PBI_QueryOrder = ["Customer","Store","Sales","Product","Date","CurrencyExchange"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -19,6 +19,7 @@ ref table Sales
 ref table Product
 ref table Customer
 ref table Date
+ref table CurrencyExchange
 
 ref cultureInfo pt-BR
 

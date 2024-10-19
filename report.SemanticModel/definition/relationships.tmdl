@@ -10,12 +10,16 @@ relationship AutoDetected_0dfb693b-bbe1-4875-a2e4-3053ae28e2fe
 	fromColumn: Sales.ProductKey
 	toColumn: Product.ProductKey
 
-relationship 7b4648ae-22a8-4fb3-32f0-842638daaa56
-	fromColumn: Sales.'Order Date'
+relationship 50b90324-3771-58d0-fa92-0a2cf3db918d
+	fromColumn: Sales.OrderDate
 	toColumn: Date.Date
 
-relationship d3efc3cb-e152-7459-fb89-50a4af8c3e60
+relationship 34697c13-c6b0-4010-d905-5481e4a28b00
 	isActive: false
-	fromColumn: Sales.'Delivery Date'
+	fromColumn: Sales.DeliveryDate
+	toColumn: Date.Date
+
+relationship 818e6607-3491-d577-68f8-3da4d47c39e4
+	fromColumn: CurrencyExchange.Date
 	toColumn: Date.Date
 
