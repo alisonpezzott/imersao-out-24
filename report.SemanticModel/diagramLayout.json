@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 637.93569038213445,
-            "y": 160.28721515733588
+            "x": 548.93569038213445,
+            "y": 0
           },
           "nodeIndex": "Customer",
           "nodeLineageTag": "141ba5b0-1d19-4ca9-bd59-337f913ac8c2",
@@ -24,8 +24,8 @@
         },
         {
           "location": {
-            "x": 93.935690382134339,
-            "y": 535.06206905478336
+            "x": 818.93569038213434,
+            "y": 0
           },
           "nodeIndex": "Date",
           "nodeLineageTag": "09f132e7-907f-4738-b7f8-aa1d173dd712",
@@ -52,8 +52,8 @@
         },
         {
           "location": {
-            "x": 316.00412682106167,
-            "y": 249.71085831938012
+            "x": 228.00412682106167,
+            "y": 272.71085831938012
           },
           "nodeIndex": "Sales",
           "nodeLineageTag": "dd7d2d60-ec1e-4117-94a3-0ef7f06d0c6c",
@@ -67,7 +67,7 @@
         {
           "location": {
             "x": 0,
-            "y": 159.12413810956673
+            "y": 0
           },
           "nodeIndex": "Store",
           "nodeLineageTag": "5d147d01-46fb-4012-8e46-c9fe00c22433",
@@ -77,6 +77,19 @@
           },
           "zIndex": 0,
           "expandedHeight": 296
+        },
+        {
+          "location": {
+            "x": 956.93569038213445,
+            "y": 243.53103452739168
+          },
+          "nodeIndex": "CurrencyExchange",
+          "nodeLineageTag": "8a41a93d-7ebd-4ff6-baa2-461a57add616",
+          "size": {
+            "height": 196,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

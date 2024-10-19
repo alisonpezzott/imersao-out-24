@@ -10,15 +10,6 @@ table Store
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Store Code'
-		dataType: int64
-		formatString: 0
-		lineageTag: ef1170e6-0af7-4408-9a88-9826942fe6e9
-		summarizeBy: none
-		sourceColumn: Store Code
-
-		annotation SummarizationSetBy = Automatic
-
 	column Country
 		dataType: string
 		lineageTag: cb761dc9-7167-4d37-a704-fa68f973a64e
@@ -43,37 +34,6 @@ table Store
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Square Meters'
-		dataType: int64
-		formatString: 0
-		lineageTag: cf1804ea-ede7-4a86-a6f3-49aa15310a0f
-		summarizeBy: none
-		sourceColumn: Square Meters
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Open Date'
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 715c5a3c-e629-4696-b4a5-98e4453acfe9
-		summarizeBy: none
-		sourceColumn: Open Date
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column 'Close Date'
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 8737b351-6eb8-4b4d-a1e7-61975111875c
-		summarizeBy: none
-		sourceColumn: Close Date
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
 	column Status
 		dataType: string
 		lineageTag: e46798c8-f031-4bd6-88c3-f634314539c2
@@ -82,15 +42,59 @@ table Store
 
 		annotation SummarizationSetBy = Automatic
 
+	column StoreCode
+		dataType: int64
+		formatString: 0
+		lineageTag: dff73de5-02c8-43cf-9962-3e0a83302498
+		summarizeBy: none
+		sourceColumn: StoreCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SquareMeters
+		dataType: int64
+		formatString: 0
+		lineageTag: 70bfcb70-1926-4c4a-8a53-2070a92171b8
+		summarizeBy: none
+		sourceColumn: SquareMeters
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpenDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 344c88da-5c10-4b19-86c1-c9cedee28330
+		summarizeBy: none
+		sourceColumn: OpenDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CloseDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5c61df28-3abe-4b08-8e71-c3eebc36c489
+		summarizeBy: none
+		sourceColumn: CloseDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	partition Store = m
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("localhost"),
-				    #"Contoso V2 1M" = Source{[Name="Contoso V2 1M"]}[Data],
-				    dbo_Store = #"Contoso V2 1M"{[Schema="dbo",Item="Store"]}[Data]
+				    Source = PowerPlatform.Dataflows(null)
+				        {[Id="Workspaces"]}[Data]
+				        {[workspaceId="0f694e77-2b7f-4efd-8c1e-401276b32219"]}[Data]
+				        {[dataflowId="b7553d7c-cec1-4e1d-91ea-15a12c336b99"]}[Data]
+				        {[entity="Store",version=""]}[Data]
 				in
-				    dbo_Store
+				    Source
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

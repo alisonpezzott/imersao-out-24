@@ -5,7 +5,7 @@ table Sales
 			
 			SUMX(
 			    'Sales',
-			    'Sales'[Quantity] * 'Sales'[Unit Price]
+			    'Sales'[Quantity] * 'Sales'[UnitPrice]
 			)
 			
 			```
@@ -32,46 +32,6 @@ table Sales
 		lineageTag: 7b9e8c2d-4c5b-4d8a-8b2d-3a8e8c2d4d8a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column 'Order Number'
-		dataType: int64
-		formatString: 0
-		lineageTag: b1ea8b4f-3684-43c0-b96d-8ea0de2aa4fb
-		summarizeBy: sum
-		sourceColumn: Order Number
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Line Number'
-		dataType: int64
-		formatString: 0
-		lineageTag: c455aed9-5bda-4c57-9ec2-d5674a4994dc
-		summarizeBy: sum
-		sourceColumn: Line Number
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Order Date'
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 14e8d414-c346-4fc4-b10c-24b8f8d21820
-		summarizeBy: none
-		sourceColumn: Order Date
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column 'Delivery Date'
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: f10e02ec-4656-4135-89e9-d06cbd74b673
-		summarizeBy: none
-		sourceColumn: Delivery Date
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
 
 	column CustomerKey
 		dataType: int64
@@ -110,49 +70,89 @@ table Sales
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'Unit Price'
-		dataType: double
-		lineageTag: c9649811-ae07-4547-904b-c97d7f25f778
+	column OrderNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: f26c3986-9492-4d8c-a187-5b830c48ee7f
 		summarizeBy: sum
-		sourceColumn: Unit Price
+		sourceColumn: OrderNumber
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column 'Net Price'
-		dataType: double
-		lineageTag: df1eb0c2-a5cf-4e0f-996f-26c2a972905a
+	column LineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 0286d9a9-c0d5-4907-9310-62c33c605961
 		summarizeBy: sum
-		sourceColumn: Net Price
+		sourceColumn: LineNumber
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column 'Unit Cost'
-		dataType: double
-		lineageTag: 5263d861-4220-414a-b8cb-e02d1b068440
-		summarizeBy: sum
-		sourceColumn: Unit Cost
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column 'Currency Code'
-		dataType: string
-		lineageTag: 113fea7e-92f2-46d8-831c-b72de053901d
+	column OrderDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0691c71f-0f94-42dc-a27c-c5bf150acc1d
 		summarizeBy: none
-		sourceColumn: Currency Code
+		sourceColumn: OrderDate
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Exchange Rate'
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DeliveryDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a3ebde37-dac1-4a66-a216-97039ad0b1a2
+		summarizeBy: none
+		sourceColumn: DeliveryDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UnitPrice
 		dataType: double
-		lineageTag: 0dbb1e41-98b7-49b7-8940-15c8464423c0
+		lineageTag: c9ca6afc-d93a-4ed0-bfff-12e0f2086fa5
 		summarizeBy: sum
-		sourceColumn: Exchange Rate
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NetPrice
+		dataType: double
+		lineageTag: d5d63623-f506-440f-9399-487aa3a4294d
+		summarizeBy: sum
+		sourceColumn: NetPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitCost
+		dataType: double
+		lineageTag: 040c7f28-5d0a-46fd-a804-be4614132813
+		summarizeBy: sum
+		sourceColumn: UnitCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CurrencyCode
+		dataType: string
+		lineageTag: e535603b-e93b-4c73-9b9c-c333a6f27d89
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExchangeRate
+		dataType: double
+		lineageTag: e69739e2-52d9-4507-b609-316b2a6012ea
+		summarizeBy: sum
+		sourceColumn: ExchangeRate
 
 		annotation SummarizationSetBy = Automatic
 
@@ -162,11 +162,15 @@ table Sales
 		mode: import
 		source =
 				let
-				    Source = Sql.Databases("localhost"),
-				    #"Contoso V2 1M" = Source{[Name="Contoso V2 1M"]}[Data],
-				    dbo_Sales = #"Contoso V2 1M"{[Schema="dbo",Item="Sales"]}[Data]
+				    Source = PowerPlatform.Dataflows(null)
+				        {[Id="Workspaces"]}[Data]
+				        {[workspaceId="0f694e77-2b7f-4efd-8c1e-401276b32219"]}[Data]
+				        {[dataflowId="b7553d7c-cec1-4e1d-91ea-15a12c336b99"]}[Data]
+				        {[entity="Sales",version=""]}[Data]
 				in
-				    dbo_Sales
+				    Source
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 
