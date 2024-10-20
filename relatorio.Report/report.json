@@ -45,7 +45,7 @@
           "z": 1000.00
         },
         {
-          "config": "{\"name\":\"bd6b60769a1820a99524\",\"layouts\":[{\"id\":0,\"position\":{\"x\":137.82771535580525,\"y\":116.25468164794007,\"z\":2000,\"width\":1003.1460674157304,\"height\":186.96629213483146,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"EXCEL É MELHOR QUE POWER BI\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"42pt\"}}]}]}}]}}}",
+          "config": "{\"name\":\"bd6b60769a1820a99524\",\"layouts\":[{\"id\":0,\"position\":{\"x\":137.82771535580525,\"y\":116.25468164794007,\"z\":2000,\"width\":1003.1460674157304,\"height\":186.96629213483146,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"EXCEL É MELHOR QUE POWER BI\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"42pt\"}}]},{\"textRuns\":[{\"value\":\"VERSÃO FINAL... AGORA VAI!\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"42pt\"}}]}]}}]}}}",
           "filters": "[]",
           "height": 186.97,
           "width": 1003.15,
