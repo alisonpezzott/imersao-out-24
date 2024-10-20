@@ -1,0 +1,87 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 582.63088471965023,
+            "y": 688.4636039049085
+          },
+          "nodeIndex": "Customer",
+          "nodeLineageTag": "c8688a19-c1fe-40a2-9ae0-f33fce66e306",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 856.63088471965034,
+            "y": 349.23180195245436
+          },
+          "nodeIndex": "Date",
+          "nodeLineageTag": "c45f9b97-9b19-4d34-a551-b5c06972b4a9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 415.764649822874,
+            "y": -10
+          },
+          "nodeIndex": "Product",
+          "nodeLineageTag": "8eb3f354-da21-4692-835f-bf2cc74d4d58",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 295.65368673700016,
+            "y": 343.7050790169817
+          },
+          "nodeIndex": "Sales",
+          "nodeLineageTag": "ced15aaf-d378-4bec-908b-72d0c3d5a8b8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10,
+            "y": 148.63005268311144
+          },
+          "nodeIndex": "Store",
+          "nodeLineageTag": "7e38539a-060e-42f7-a6c5-1297b3305de3",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
