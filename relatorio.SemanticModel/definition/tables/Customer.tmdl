@@ -1,0 +1,117 @@
+table Customer
+	lineageTag: be40b555-d5cf-49f6-909e-c4e23c7dabc6
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ffe1160f-bd0f-49f8-bcc3-aca184e9cb0e
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: ea1285c4-49da-49dd-85b3-648baeaa218b
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: f06d9273-882f-4574-ac62-f7b5c61c0bbb
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address
+		dataType: string
+		lineageTag: b12258ab-82f1-4d3b-9bfc-c31445016f98
+		summarizeBy: none
+		sourceColumn: Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 632b7188-589b-4f6d-86b1-33083b66316a
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateCode
+		dataType: string
+		lineageTag: 3cf07240-8ab5-4abc-88cc-0a8120629d8d
+		summarizeBy: none
+		sourceColumn: StateCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 47c0c9e2-7f4c-44c4-82bb-2812ad355057
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZipCode
+		dataType: string
+		lineageTag: 65574458-0ac1-4098-b824-6d3f97af1efd
+		summarizeBy: none
+		sourceColumn: ZipCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryCode
+		dataType: string
+		lineageTag: 078a319f-d635-41f0-a4f1-0eb382411fff
+		summarizeBy: none
+		sourceColumn: CountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: fa3d18a7-6dc3-46f3-a0e9-c617facc8284
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Continent
+		dataType: string
+		lineageTag: b88f2369-36b0-4f99-af54-315eeab5ac4e
+		summarizeBy: none
+		sourceColumn: Continent
+
+		annotation SummarizationSetBy = Automatic
+
+	column Birthday
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7ce9a158-15fc-44f6-903b-1be00e965ba2
+		summarizeBy: none
+		sourceColumn: Birthday
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Customer = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"0f694e77-2b7f-4efd-8c1e-401276b32219" = Workspaces{[workspaceId="0f694e77-2b7f-4efd-8c1e-401276b32219"]}[Data],
+				    #"b7553d7c-cec1-4e1d-91ea-15a12c336b99" = #"0f694e77-2b7f-4efd-8c1e-401276b32219"{[dataflowId="b7553d7c-cec1-4e1d-91ea-15a12c336b99"]}[Data],
+				    Customer_ = #"b7553d7c-cec1-4e1d-91ea-15a12c336b99"{[entity="Customer",version=""]}[Data]
+				in
+				    Customer_
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,153 @@
+table Sales
+	lineageTag: 3a76653c-6d36-4c74-8bff-e461b785a11a
+
+	measure 'Sales Amount' = ```
+			
+			SUMX(
+			    Sales,
+			    Sales[NetPrice] * Sales[Quantity]
+			) 
+			```
+		lineageTag: 526a6cf2-5b8c-4fdd-9258-1d6ce71816c5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OrderNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 985a8649-1985-44d0-a245-064abb14dd44
+		summarizeBy: sum
+		sourceColumn: OrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 14a5ba58-5ff9-4093-874a-3192bc9826be
+		summarizeBy: sum
+		sourceColumn: LineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 82f3235f-4186-4e4c-a0e8-f15cbfba3741
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DeliveryDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 332678b0-089e-4b7f-a9ad-3cb9bdb6340c
+		summarizeBy: none
+		sourceColumn: DeliveryDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: d92ef9fd-ee21-4d78-b02b-6dad989e1e8b
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b77436e-2832-42d8-a63b-761d30b0e3aa
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 30df8823-b12e-462e-9229-d2b2913639ae
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: double
+		lineageTag: 53259153-5f05-4314-b592-344af397f817
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitPrice
+		dataType: double
+		lineageTag: b811ea62-0397-47c7-9c28-0b59d4d41aef
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NetPrice
+		dataType: double
+		lineageTag: 68e38794-96c8-4f94-9e0b-a5e0023d599e
+		summarizeBy: sum
+		sourceColumn: NetPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitCost
+		dataType: double
+		lineageTag: a24fb8d5-76b6-4779-82d4-51d5e404d469
+		summarizeBy: sum
+		sourceColumn: UnitCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CurrencyCode
+		dataType: string
+		lineageTag: 7398a59e-5a91-4e95-88cf-e6ebad9dacf3
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExchangeRate
+		dataType: double
+		lineageTag: e64108a1-fb18-45fb-9769-525fa47ca3b0
+		summarizeBy: sum
+		sourceColumn: ExchangeRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Sales = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"0f694e77-2b7f-4efd-8c1e-401276b32219" = Workspaces{[workspaceId="0f694e77-2b7f-4efd-8c1e-401276b32219"]}[Data],
+				    #"b7553d7c-cec1-4e1d-91ea-15a12c336b99" = #"0f694e77-2b7f-4efd-8c1e-401276b32219"{[dataflowId="b7553d7c-cec1-4e1d-91ea-15a12c336b99"]}[Data],
+				    Sales_ = #"b7553d7c-cec1-4e1d-91ea-15a12c336b99"{[entity="Sales",version=""]}[Data]
+				in
+				    Sales_
+
+	annotation PBI_ResultType = Table
+

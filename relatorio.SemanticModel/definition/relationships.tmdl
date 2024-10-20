@@ -1,0 +1,25 @@
+relationship AutoDetected_35d3d163-eb8d-4b3f-af34-b6bbafe5afcd
+	fromColumn: Sales.CustomerKey
+	toColumn: Customer.CustomerKey
+
+relationship AutoDetected_8c4ff1f9-52cb-4908-bfb3-e382c4687e66
+	fromColumn: Sales.ProductKey
+	toColumn: Product.ProductKey
+
+relationship AutoDetected_064d68c2-5517-406b-9ae9-646cf752c84e
+	fromColumn: Sales.StoreKey
+	toColumn: Store.StoreKey
+
+relationship 5a1ce855-efd3-517e-650b-604ca44243e2
+	fromColumn: Sales.OrderDate
+	toColumn: Date.Date
+
+relationship dc4672d7-14d2-037c-0fc5-773c8b7d21ac
+	isActive: false
+	fromColumn: Sales.DeliveryDate
+	toColumn: Date.Date
+
+relationship 9ce49a0e-365b-8e22-6b75-78d69cc67557
+	fromColumn: CurrencyExchange.Date
+	toColumn: Date.Date
+

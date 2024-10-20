@@ -1,0 +1,54 @@
+table CurrencyExchange
+	lineageTag: 9824662e-06e2-4733-8c8d-303452a7fcf3
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6f69f0bf-7e79-4d65-8244-f1b2bd926559
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FromCurrency
+		dataType: string
+		lineageTag: a27c635c-a811-45c8-8099-9d21ca395fbf
+		summarizeBy: none
+		sourceColumn: FromCurrency
+
+		annotation SummarizationSetBy = Automatic
+
+	column ToCurrency
+		dataType: string
+		lineageTag: 8598fd43-d199-4b4e-a76f-b5ac1d524d38
+		summarizeBy: none
+		sourceColumn: ToCurrency
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exchange
+		dataType: double
+		lineageTag: 80d98392-9e44-4505-9ffd-d625159d7916
+		summarizeBy: sum
+		sourceColumn: Exchange
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition CurrencyExchange = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"0f694e77-2b7f-4efd-8c1e-401276b32219" = Workspaces{[workspaceId="0f694e77-2b7f-4efd-8c1e-401276b32219"]}[Data],
+				    #"b7553d7c-cec1-4e1d-91ea-15a12c336b99" = #"0f694e77-2b7f-4efd-8c1e-401276b32219"{[dataflowId="b7553d7c-cec1-4e1d-91ea-15a12c336b99"]}[Data],
+				    CurrencyExchange_ = #"b7553d7c-cec1-4e1d-91ea-15a12c336b99"{[entity="CurrencyExchange",version=""]}[Data]
+				in
+				    CurrencyExchange_
+
+	annotation PBI_ResultType = Table
+
