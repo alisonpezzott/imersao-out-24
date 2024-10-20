@@ -1,0 +1,138 @@
+table Product
+	lineageTag: 8eb3f354-da21-4692-835f-bf2cc74d4d58
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 939cd23c-5a0e-4849-a559-eb4dd313160d
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCode
+		dataType: string
+		lineageTag: 63a9ce45-b735-4615-8c45-2ab173f7a00d
+		summarizeBy: none
+		sourceColumn: ProductCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: c08d530e-5173-4e61-a5f1-9bb7b96e3842
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manufacturer
+		dataType: string
+		lineageTag: 718e93ec-b5c2-4fb8-afcb-fbbc778858aa
+		summarizeBy: none
+		sourceColumn: Manufacturer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand
+		dataType: string
+		lineageTag: 40e70a88-5072-4780-9200-55eaf1f72cff
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		lineageTag: 75a1ddf1-2676-406e-a63c-92d291266a8e
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeightUnitMeasure
+		dataType: string
+		lineageTag: 5892dc3b-96d1-4f18-b9a4-67233e6efe25
+		summarizeBy: none
+		sourceColumn: WeightUnitMeasure
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weight
+		dataType: double
+		lineageTag: ffcc6f0a-ffa0-4018-9b22-f0ca324db566
+		summarizeBy: none
+		sourceColumn: Weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitCost
+		dataType: double
+		lineageTag: b9acea02-efcc-41e6-9905-e938239388a3
+		summarizeBy: none
+		sourceColumn: UnitCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitPrice
+		dataType: double
+		lineageTag: 4898c068-d987-42b7-a5b8-5f7a7f0f0687
+		summarizeBy: none
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SubcategoryCode
+		dataType: int64
+		formatString: 0
+		lineageTag: 47320f1a-3310-42ff-b289-6f1aaf0f1e2f
+		summarizeBy: none
+		sourceColumn: SubcategoryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subcategory
+		dataType: string
+		lineageTag: 1b0bdb5d-28f8-4b2a-86d7-aa8d9622e07f
+		summarizeBy: none
+		sourceColumn: Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryCode
+		dataType: int64
+		formatString: 0
+		lineageTag: ba2bc388-87ac-4c4f-b8b3-6ded7a35a7c6
+		summarizeBy: none
+		sourceColumn: CategoryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 9e37e9a0-80f1-4331-b9a3-c3a6e0e90a47
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Product = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"0f694e77-2b7f-4efd-8c1e-401276b32219" = Workspaces{[workspaceId="0f694e77-2b7f-4efd-8c1e-401276b32219"]}[Data],
+				    #"b7553d7c-cec1-4e1d-91ea-15a12c336b99" = #"0f694e77-2b7f-4efd-8c1e-401276b32219"{[dataflowId="b7553d7c-cec1-4e1d-91ea-15a12c336b99"]}[Data],
+				    Product_ = #"b7553d7c-cec1-4e1d-91ea-15a12c336b99"{[entity="Product",version=""]}[Data]
+				in
+				    Product_
+
+	annotation PBI_ResultType = Table
+
