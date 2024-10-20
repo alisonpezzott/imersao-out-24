@@ -1,0 +1,98 @@
+table Store
+	lineageTag: 962e1aeb-ac42-40f0-a6af-00abc3fc2967
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 59d31da0-0788-4a0a-8de8-a8a5f3ddb0cf
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreCode
+		dataType: int64
+		formatString: 0
+		lineageTag: 10c9fac7-34ba-4fc0-b96b-f6a3d4dd4c1c
+		summarizeBy: none
+		sourceColumn: StoreCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: a4630e00-4bd4-428d-b23a-ec1640887433
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: fe25c541-c401-4e22-a8a7-d49035d837f3
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 23328c04-2982-4829-99ac-304a690d2a71
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column SquareMeters
+		dataType: int64
+		formatString: 0
+		lineageTag: f77c9fa5-1c85-48c1-88f8-9b24f5ea5e56
+		summarizeBy: none
+		sourceColumn: SquareMeters
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpenDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 631d111d-0a04-4335-8ad6-b250fb714926
+		summarizeBy: none
+		sourceColumn: OpenDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CloseDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7db37329-7773-4665-a890-330d61f932c0
+		summarizeBy: none
+		sourceColumn: CloseDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Status
+		dataType: string
+		lineageTag: b5d8a9c4-3681-4c42-90f0-e3227e29def2
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Store = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"0f694e77-2b7f-4efd-8c1e-401276b32219" = Workspaces{[workspaceId="0f694e77-2b7f-4efd-8c1e-401276b32219"]}[Data],
+				    #"b7553d7c-cec1-4e1d-91ea-15a12c336b99" = #"0f694e77-2b7f-4efd-8c1e-401276b32219"{[dataflowId="b7553d7c-cec1-4e1d-91ea-15a12c336b99"]}[Data],
+				    Store_ = #"b7553d7c-cec1-4e1d-91ea-15a12c336b99"{[entity="Store",version=""]}[Data]
+				in
+				    Store_
+
+	annotation PBI_ResultType = Table
+

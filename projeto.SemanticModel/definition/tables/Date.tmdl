@@ -1,0 +1,161 @@
+table Date
+	lineageTag: 9a175e55-9009-4d74-a14d-6ae12719b444
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		lineageTag: a45b8015-a15f-4b97-8820-9d36b6944fc3
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 94a8dfa2-8ae4-423e-a2cf-c3bf37e4372c
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearQuarter
+		dataType: string
+		lineageTag: f4249e02-1429-4a27-969c-4fbfa63ac448
+		summarizeBy: none
+		sourceColumn: YearQuarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearQuarterNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: d2719f12-4d2b-411e-9eed-4021cca5c96a
+		summarizeBy: sum
+		sourceColumn: YearQuarterNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: 1ef97820-aea3-4050-8364-846457d96910
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: string
+		lineageTag: e9f74a49-0bf3-495b-9944-3443a0675a4a
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonthShort
+		dataType: string
+		lineageTag: 83256b87-7a90-4e87-9842-058f1a69a8db
+		summarizeBy: none
+		sourceColumn: YearMonthShort
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonthNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: aff782f9-31b6-4b79-89d5-9507a580d743
+		summarizeBy: sum
+		sourceColumn: YearMonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: 13ada19f-4be6-4690-8d91-39d84d68b611
+		summarizeBy: none
+		sourceColumn: Month
+		sortByColumn: MonthNumber
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthShort
+		dataType: string
+		lineageTag: 77311e83-757b-42f8-8c6b-e0f54737b52a
+		summarizeBy: none
+		sourceColumn: MonthShort
+		sortByColumn: MonthNumber
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 874ca09c-8445-49df-b408-a501bfedd92f
+		summarizeBy: sum
+		sourceColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeek
+		dataType: string
+		lineageTag: 84e54655-be00-4021-9895-8f98b33f1d3e
+		summarizeBy: none
+		sourceColumn: DayOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekShort
+		dataType: string
+		lineageTag: 3c2c19b0-0783-445e-a5a4-a6baf945a964
+		summarizeBy: none
+		sourceColumn: DayOfWeekShort
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: da820a98-37b4-4626-807b-d0174dcf4360
+		summarizeBy: sum
+		sourceColumn: DayOfWeekNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkingDay
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e0371077-099e-426a-a68c-52745126f19b
+		summarizeBy: none
+		sourceColumn: WorkingDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkingDayNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: f6fcbe48-2a6f-41de-aa2a-b0f98c05e7b8
+		summarizeBy: sum
+		sourceColumn: WorkingDayNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"0f694e77-2b7f-4efd-8c1e-401276b32219" = Workspaces{[workspaceId="0f694e77-2b7f-4efd-8c1e-401276b32219"]}[Data],
+				    #"b7553d7c-cec1-4e1d-91ea-15a12c336b99" = #"0f694e77-2b7f-4efd-8c1e-401276b32219"{[dataflowId="b7553d7c-cec1-4e1d-91ea-15a12c336b99"]}[Data],
+				    Date_ = #"b7553d7c-cec1-4e1d-91ea-15a12c336b99"{[entity="Date",version=""]}[Data]
+				in
+				    Date_
+

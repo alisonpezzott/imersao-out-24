@@ -1,0 +1,106 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 186.03602163849274,
+            "y": 308.34838338827524
+          },
+          "nodeIndex": "CurrencyExchange",
+          "nodeLineageTag": "499a0ee7-e981-4f3f-b6df-15d5a57c3e89",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 176
+        },
+        {
+          "location": {
+            "x": 467.39915175107541,
+            "y": -10
+          },
+          "nodeIndex": "Customer",
+          "nodeLineageTag": "650f4134-ebe7-4d09-9bfa-179a02844a54",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 165.68723318665457,
+            "y": 0
+          },
+          "nodeIndex": "Date",
+          "nodeLineageTag": "9a175e55-9009-4d74-a14d-6ae12719b444",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 787.74189840123245,
+            "y": 0
+          },
+          "nodeIndex": "Product",
+          "nodeLineageTag": "7c61e168-e937-4fae-b987-1434399d0eed",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 620.78232805617,
+            "y": 295.65657453477155
+          },
+          "nodeIndex": "Sales",
+          "nodeLineageTag": "c67b54af-b674-4f62-976d-5b00b9cad76e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1075.4851727311604,
+            "y": 0
+          },
+          "nodeIndex": "Store",
+          "nodeLineageTag": "962e1aeb-ac42-40f0-a6af-00abc3fc2967",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 296
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 66.116227877101664,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
