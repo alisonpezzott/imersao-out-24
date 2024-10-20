@@ -25,6 +25,7 @@
       "filters": "[]",
       "height": 720.00,
       "name": "f2bbebb332a322e966b9",
+
       "visualContainers": [
         {
           "config": "{\"name\":\"0619cb2fa93a0d6420b9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":0,\"width\":280,\"height\":280,\"z\":0,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sales.TotalSalesAmount\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Sales\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"TotalSalesAmount\"},\"Name\":\"Sales.TotalSalesAmount\",\"NativeReferenceName\":\"TotalSalesAmount\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"TotalSalesAmount\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
