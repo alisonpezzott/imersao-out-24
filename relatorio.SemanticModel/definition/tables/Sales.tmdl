@@ -10,23 +10,24 @@ table Sales
 			```
 		lineageTag: 526a6cf2-5b8c-4fdd-9258-1d6ce71816c5
 
-		measure 'Sales Previous Year' = 
-			CALCULATE(
-				SUMX(
-					Sales,
-					Sales[NetPrice] * Sales[Quantity]
-				),
-				SAMEPERIODLASTYEAR(Sales[OrderDate])
-			)
-			lineageTag: 7b8c8e2d-3c5e-4f8e-9b2d-1d6e7e8c9f5a
+	measure 'Sales Previous Year' = 
+		CALCULATE(
+			SUMX(
+				Sales,
+				Sales[NetPrice] * Sales[Quantity]
+			),
+			SAMEPERIODLASTYEAR(Sales[OrderDate])
+		)
+		lineageTag: 7b8c8e2d-3c5e-4f8e-9b2d-1d6e7e8c9f5a
 
-		measure 'Sales YoY Growth %' = 
-			DIVIDE(
-				[Sales Amount] - [Sales Previous Year],
-				[Sales Previous Year],
-				0
-			)
-			lineageTag: 9c8d8e3d-4f6e-5g7e-8h2d-2d7e8f9g0h6b
+	measure 'Sales YoY Growth %' = 
+		DIVIDE(
+			[Sales Amount] - [Sales Previous Year],
+			[Sales Previous Year],
+			0
+		)
+		lineageTag: 9c8d8e3d-4f6e-5g7e-8h2d-2d7e8f9g0h6b
+
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
