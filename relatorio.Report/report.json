@@ -45,13 +45,13 @@
           "z": 1000.00
         },
         {
-          "config": "{\"name\":\"bd6b60769a1820a99524\",\"layouts\":[{\"id\":0,\"position\":{\"x\":138.63561871682606,\"y\":474.5170364210063,\"z\":1001,\"width\":1003.1357777071155,\"height\":187.10172932514737,\"tabOrder\":1001}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"EXCEL É MELHOR QUE POWER BI\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"42pt\"}}]}]}}]}}}",
+          "config": "{\"name\":\"bd6b60769a1820a99524\",\"layouts\":[{\"id\":0,\"position\":{\"x\":137.82771535580525,\"y\":116.25468164794007,\"z\":2000,\"width\":1003.1460674157304,\"height\":186.96629213483146,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"EXCEL É MELHOR QUE POWER BI\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"42pt\"}}]}]}}]}}}",
           "filters": "[]",
-          "height": 187.10,
-          "width": 1003.14,
-          "x": 138.64,
-          "y": 474.52,
-          "z": 1001.00
+          "height": 186.97,
+          "width": 1003.15,
+          "x": 137.83,
+          "y": 116.25,
+          "z": 2000.00
         }
       ],
       "width": 1280.00
