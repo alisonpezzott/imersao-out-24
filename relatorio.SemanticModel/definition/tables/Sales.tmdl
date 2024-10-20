@@ -10,6 +10,32 @@ table Sales
 			```
 		lineageTag: 526a6cf2-5b8c-4fdd-9258-1d6ce71816c5
 
+	measure 'Sales Previous Year' = ```
+			CALCULATE(
+				SUMX(
+					Sales,
+					Sales[NetPrice] * Sales[Quantity]
+				),
+				SAMEPERIODLASTYEAR('Date'[Date])
+			)
+			
+			```
+		lineageTag: 902a0053-87f3-427d-8b74-aff7176153c4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sales YoY Growth %' = ```
+			DIVIDE(
+				[Sales Amount] - [Sales Previous Year],
+				[Sales Previous Year],
+				0
+			)
+			
+			
+			
+			```
+		lineageTag: 0ba16073-748b-4a77-84a7-5dc4cd317d6f
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column OrderNumber
