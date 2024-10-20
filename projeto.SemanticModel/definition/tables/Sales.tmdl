@@ -10,7 +10,7 @@ table Sales
 	measure SalesAmountVariation
 		expression: DIVIDE( [TotalSalesAmount] - [TotalSalesAmountPreviousYear],  [TotalSalesAmountPreviousYear])
 		lineageTag: 3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r
-	lineageTag: c67b54af-b674-4f62-976d-5b00b9cad76e
+		lineageTag: c67b54af-b674-4f62-976d-5b00b9cad76e
 
 	column OrderNumber
 		dataType: int64
