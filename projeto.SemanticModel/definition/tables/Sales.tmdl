@@ -10,7 +10,6 @@ table Sales
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure SalesAmountVariation = DIVIDE( [TotalSalesAmount] - [TotalSalesAmountPreviousYear],  [TotalSalesAmountPreviousYear])
-		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: c67b54af-b674-4f62-976d-5b00b9cad76e
 
 	column OrderNumber
