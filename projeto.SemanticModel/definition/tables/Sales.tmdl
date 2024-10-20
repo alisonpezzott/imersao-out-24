@@ -1,4 +1,15 @@
 table Sales
+	measure TotalSalesAmount
+		expression: SUMX(Sales, Sales[NetPrice] * Sales[Quantity])
+		lineageTag: 1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p
+
+	measure TotalSalesAmountPreviousYear
+		expression: CALCULATE([TotalSalesAmount], SAMEPERIODLASTYEAR(Date[OrderDate]))
+		lineageTag: 2b3c4d5e-6f7g-8h9i-0j1k-2l3m4n5o6p7q
+
+	measure SalesAmountVariation
+		expression: DIVIDE( [TotalSalesAmount] - [TotalSalesAmountPreviousYear],  [TotalSalesAmountPreviousYear])
+		lineageTag: 3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r
 	lineageTag: c67b54af-b674-4f62-976d-5b00b9cad76e
 
 	column OrderNumber
