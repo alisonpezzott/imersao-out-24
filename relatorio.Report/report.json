@@ -36,22 +36,26 @@
           "z": 0.00
         },
         {
-          "config": "{\"name\":\"37342c440da211d00869\",\"layouts\":[{\"id\":0,\"position\":{\"x\":480.3470715835141,\"y\":90.23861171366595,\"z\":1000,\"width\":637.2234273318871,\"height\":506.72451193058566,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sales.Sales Amount\"}],\"Category\":[{\"queryRef\":\"Product.Category\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Sales\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Product\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Sales Amount\"},\"Name\":\"Sales.Sales Amount\",\"NativeReferenceName\":\"Sales Amount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Category\"},\"Name\":\"Product.Category\",\"NativeReferenceName\":\"Category\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Sales Amount\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+
+          "config": "{\"name\":\"37342c440da211d00869\",\"layouts\":[{\"id\":0,\"position\":{\"x\":960.0000000000001,\"y\":0,\"z\":1000,\"width\":320,\"height\":304,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sales.Sales Amount\"}],\"Category\":[{\"queryRef\":\"Product.Category\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Sales\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Product\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Sales Amount\"},\"Name\":\"Sales.Sales Amount\",\"NativeReferenceName\":\"Sales Amount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Category\"},\"Name\":\"Product.Category\",\"NativeReferenceName\":\"Category\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Sales Amount\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
           "filters": "[]",
-          "height": 506.72,
-          "width": 637.22,
-          "x": 480.35,
-          "y": 90.24,
+          "height": 304.00,
+          "width": 320.00,
+          "x": 960.00,
+          "y": 0.00,
           "z": 1000.00
         },
         {
+
           "config": "{\"name\":\"bd6b60769a1820a99524\",\"layouts\":[{\"id\":0,\"position\":{\"x\":137.82771535580525,\"y\":116.25468164794007,\"z\":2000,\"width\":1003.1460674157304,\"height\":186.96629213483146,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"EXCEL É MELHOR QUE POWER BI\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"42pt\"}}]},{\"textRuns\":[{\"value\":\"VERSÃO FINAL... AGORA VAI!\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"42pt\"}}]}]}}]}}}",
+
           "filters": "[]",
-          "height": 186.97,
-          "width": 1003.15,
-          "x": 137.83,
-          "y": 116.25,
-          "z": 2000.00
+          "height": 352.00,
+          "width": 1200.00,
+          "x": 32.00,
+          "y": 352.00,
+          "z": 1001.00
+
         }
       ],
       "width": 1280.00
